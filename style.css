@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Archivo+Black&display=swap');
+
+:root {
+    --bg-blue: #acc7e8;
+    --bg-green: #6d7e52;
+    --text-dark: #2b1d16;
+    --white: #ffffff;
+    --font-accent: 'Archivo Black', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--white);
+    color: var(--text-dark);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.hero-left {
+    flex: 1;
+    min-width: 50%;
+    background-color: var(--bg-blue);
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-header {
+    background: var(--white);
+    padding: 10px 25px;
+    border-radius: 50px;
+    display: inline-flex;
+    gap: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    width: fit-content;
+    z-index: 10;
+}
+
+.navigation ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.hero-content h2 {
+    font-family: var(--font-accent);
+    font-size: clamp(45px, 7vw, 85px);
+    line-height: 0.9;
+    margin: 40px 0 20px;
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    line-height: 1.5;
+    max-width: 420px;
+    margin-bottom: 40px;
+}
+
+.hero-footer-info {
+    font-family: monospace;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.hero-right {
+    flex: 1;
+    min-width: 50%;
+    /* Додали ?v=2 в кінець посилання, щоб скинути кеш */
+    background: url('https://images.pexels.com/photos/1001435/pexels-photo-1001435.jpeg?auto=compress&cs=tinysrgb&w=1600&v=2') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.featured-card {
+    background: var(--white);
+    width: 360px;
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+.card-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    padding: 15px;
+    border-radius: 55px;
+}
+
+.card-content {
+    padding: 0 35px 35px 35px;
+    text-align: center;
+}
+
+.card-content .tag {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #999;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.card-content h3 {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+
+/* --- PROJECTS GRID --- */
+.stories-section {
+    padding: 100px 60px;
+    background-color: #fcfaf7;
+}
+
+.stories-section h2 {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 60px;
+    font-weight: 500;
+}
+
+.stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.story-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.story-image {
+    width: 100%;
+    height: 320px; /* Фіксована висота для рівної сітки */
+    border-radius: 35px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* "Center Crop" як у Figma */
+    display: block;
+}
+
+.story-card span {
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #8a8a8a;
+    letter-spacing: 1px;
+}
+
+.story-card h3 {
+    font-size: 20px;
+    margin-top: 10px;
+    line-height: 1.3;
+}
+
+/* --- ITINERARY SECTION (Зелена) --- */
+.itinerary-section {
+    background-color: var(--bg-green);
+    color: var(--white);
+    padding: 100px 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.itinerary-section h2 {
+    font-size: 40px;
+    margin-bottom: 60px;
+}
+
+.itinerary-list {
+    max-width: 900px;
+    width: 100%;
+}
+
+.itinerary-item {
+    display: flex;
+    align-items: center;
+    padding: 40px 0;
+    border-bottom: 1px dashed rgba(255,255,255,0.3);
+}
+
+.itinerary-item:last-child {
+    border-bottom: none;
+}
+
+.itinerary-number {
+    font-family: serif;
+    font-size: 64px;
+    font-style: italic;
+    min-width: 100px;
+    opacity: 0.9;
+}
+
+.itinerary-info {
+    flex: 1;
+}
+
+.itinerary-info h3 {
+    font-size: 26px;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.itinerary-info p {
+    font-size: 15px;
+    opacity: 0.8;
+}
+
+.itinerary-img {
+    width: 180px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 80px; /* Овальні картинки як на скрині */
+    margin-left: 30px;
+}
+
+/* Стилі для блоку соцмереж у зеленій секції */
+.social-links-block {
+    margin-top: 80px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 50px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.social-links-block p {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    opacity: 0.8;
+}
+
+.social-icons-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icon-link {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    color: var(--white); /* Колір іконок беруть звідси через fill="currentColor" */
+    transition: opacity 0.3s;
+}
+
+.social-icon-link:hover {
+    opacity: 0.7;
+}
+
+/* --- FOOTER CTA --- */
+.footer-cta {
+    padding: 120px 20px;
+    text-align: center;
+    background-color: var(--white);
+}
+
+.footer-cta p {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.footer-cta h2 {
+    font-family: var(--font-accent);
+    font-size: clamp(40px, 10vw, 80px);
+    line-height: 1;
+    margin-bottom: 50px;
+}
+
+/* КНОПКИ ТА ПОСИЛАННЯ (Загальні) */
+.btn-outline {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 2px solid var(--text-dark);
+    border-radius: 50px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 700;
+    transition: all 0.3s;
+}
+
+.btn-outline:hover {
+    background: var(--text-dark);
+    color: var(--white);
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: underline;
+    color: var(--text-dark);
+}
+
+/* АДАПТИВНІСТЬ */
+@media (max-width: 1024px) {
+    .hero-left, .hero-right { min-width: 100%; height: auto; min-height: 60vh; }
+    .hero-left { padding: 40px 20px; }
+    .stories-section { padding: 60px 20px; }
+    .story-image { height: 280px; }
+    
+    .itinerary-item { flex-direction: column; text-align: center; }
+    .itinerary-number { min-width: auto; margin-bottom: 10px; }
+    .itinerary-img { margin: 30px 0 0 0; width: 220px; height: 130px; }
+}
