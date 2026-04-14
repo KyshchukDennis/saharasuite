@@ -34,13 +34,14 @@ body {
 .hero-right { 
     flex: 1; 
     min-width: 50%; 
-    background: url('https://images.pexels.com/photos/1586298/pexels-photo-1586298.jpeg?auto=compress&cs=tinysrgb&w=1200&v=FINAL_FIX') center/cover no-repeat !important; 
+    /* Використовуємо максимально стабільне посилання з додаванням випадкового параметра для обходу кешу */
+    background: #d2b48c url('https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?q=80&w=1600&auto=format&fit=crop&sig=1') center/cover no-repeat !important; 
     min-height: 100vh; 
     display: flex; 
     align-items: center; 
     justify-content: center; 
+    position: relative;
 }
-
 /* --- ХЕДЕР (ISC + БУРГЕР) --- */
 .main-header { 
     background: var(--white); 
@@ -76,7 +77,7 @@ body {
     transition: 0.3s ease-in-out;
 }
 
-/* Анімація бургера */
+/* Анімація бургера у хрестик */
 .burger-menu.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .burger-menu.open span:nth-child(2) { opacity: 0; }
 .burger-menu.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
@@ -124,7 +125,7 @@ body {
 .card-image img { width: 100%; height: 230px; object-fit: cover; padding: 15px; border-radius: 50px; }
 .card-content { padding: 0 30px 30px; text-align: center; }
 
-/* --- STORIES SECTION (КАРТКИ ВИПРАВЛЕНО) --- */
+/* --- STORIES SECTION (КАРТКИ ПРОЕКТІВ) --- */
 .stories-section { padding: 100px 5%; background: #fcfaf7; }
 .stories-section h2 { text-align: left; margin-bottom: 60px; font-family: 'Archivo Black', sans-serif; font-size: 36px; }
 
@@ -181,7 +182,7 @@ body {
     margin-left: 20px; 
 }
 
-/* --- СОЦІАЛЬНІ ІКОНКИ (ВИПРАВЛЕНО) --- */
+/* --- СОЦІАЛЬНІ ІКОНКИ --- */
 .social-links-block { 
     margin-top: 60px; 
     text-align: center; 
@@ -217,7 +218,7 @@ body {
     transform: translateY(-5px); 
 }
 
-/* --- ФУТЕР (ШРИФТИ ВИПРАВЛЕНО) --- */
+/* --- ФУТЕР (ШРИФТИ ТА ВІДСТУПИ) --- */
 .footer-cta { 
     padding: 120px 20px; 
     text-align: center; 
@@ -237,12 +238,68 @@ body {
     margin-bottom: 40px;
 }
 
-/* Копірайт знизу */
 .footer-cta div { 
     margin-top: 60px; 
     font-size: 14px; 
     opacity: 0.5; 
     letter-spacing: 1px;
+}
+
+/* --- НОВІ СТИЛІ ДЛЯ СЕКЦІЙ --- */
+
+/* Про нас */
+.about-section { padding: 100px 5%; background: #ffffff; }
+.about-container { 
+    display: flex; 
+    align-items: center; 
+    gap: 60px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    flex-wrap: wrap;
+}
+.about-text { flex: 1; min-width: 300px; }
+.about-text h2 { font-family: 'Archivo Black', sans-serif; font-size: 40px; margin: 20px 0; }
+.about-text p { line-height: 1.6; opacity: 0.8; }
+.stats { display: flex; gap: 40px; margin-top: 40px; }
+.stat-item strong { font-size: 32px; display: block; color: var(--bg-green); }
+.about-image { flex: 1; min-width: 300px; }
+.about-image img { width: 100%; border-radius: 40px; box-shadow: 20px 20px 0 var(--bg-blue); }
+
+/* Контакти */
+.contact-section { padding: 100px 5%; background: var(--bg-blue); display: flex; justify-content: center; }
+.contact-card { 
+    background: var(--white); 
+    padding: 60px; 
+    border-radius: 40px; 
+    max-width: 600px; 
+    text-align: center; 
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+.contact-form { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+.contact-form input, .contact-form textarea { 
+    padding: 15px 20px; 
+    border: 1px solid #eee; 
+    border-radius: 15px; 
+    font-family: inherit;
+    outline: none;
+}
+.contact-form textarea { height: 120px; resize: none; }
+.btn-submit { 
+    background: var(--text-dark); 
+    color: white; 
+    border: none; 
+    padding: 15px; 
+    border-radius: 50px; 
+    font-weight: 700; 
+    cursor: pointer; 
+    transition: 0.3s;
+}
+.btn-submit:hover { transform: scale(1.02); background: var(--bg-green); }
+
+@media (max-width: 768px) {
+    .about-container { gap: 30px; }
+    .about-text h2 { font-size: 32px; }
+    .contact-card { padding: 40px 20px; }
 }
 
 /* --- АДАПТИВНІСТЬ --- */
