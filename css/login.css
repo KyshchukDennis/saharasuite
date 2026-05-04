@@ -1,0 +1,89 @@
+/* login.css */
+
+.login-body {
+    height: 100vh; /* Обов'язково */
+    display: flex; /* Обов'язково */
+    align-items: center; /* Центр по вертикалі */
+    justify-content: center; /* Центр по горизонталі */
+    background-color: var(--bg-blue); /* Наш фон */
+    margin: 0; /* Прибираємо відступи за замовчуванням */
+}
+
+.login-card {
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    animation: slideUp 0.5s ease;
+}
+
+.vertical-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.vertical-fields input, 
+#recover-fields input {
+    width: 100%;
+    padding: 15px 20px;
+    border: 1px solid #eee;
+    border-radius: 15px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+
+.vertical-fields input:focus, 
+#recover-fields input:focus {
+    border-color: var(--bg-green);
+    background-color: #f9fbf9;
+}
+
+#forgot-link {
+    font-size: 12px;
+    color: var(--bg-green);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#forgot-link:hover {
+    text-decoration: underline;
+}
+
+.error-msg-style {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+#auth-footer {
+    margin-top: 25px;
+    font-size: 14px;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 20px;
+}
+
+/* Ховаємо помилку за замовчуванням */
+#error-msg {
+    display: none;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* Анімація трясіння карти */
+.shake {
+    animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}

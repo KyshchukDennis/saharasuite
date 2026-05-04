@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вхід в систему | ISC Admin</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="login-body">
+
+    <div class="login-card">
+        <div class="logo"><h1>ISC</h1></div>
+        
+        <h2 id="auth-title">Вхід в систему</h2>
+        
+        <form id="login-form" class="contact-form">
+            <div id="login-fields" class="vertical-fields">
+                <input type="text" id="username" placeholder="Логін або Email" required>
+                <input type="password" id="password" placeholder="Пароль" required>
+                
+                <div class="forgot-link-wrapper">
+                    <a href="#" id="forgot-link">Забули пароль?</a>
+                </div>
+            </div>
+
+            <div id="recover-fields" style="display: none;">
+                <p class="recover-text">
+                    Введіть ваш Email або номер телефону, щоб отримати код доступу.
+                </p>
+                <input type="text" id="recover-contact" placeholder="Email або +380...">
+            </div>
+
+            <p id="error-msg" class="error-msg-style">
+                <i class="fa-solid fa-circle-exclamation"></i> Невірні дані!
+            </p>
+
+            <button type="submit" id="auth-btn" class="btn-submit">Увійти</button>
+        </form>
+
+        <div id="auth-footer">
+            <span>Ще не з нами? </span>
+            <a href="register.html" class="reg-link">Створити акаунт</a>
+        </div>
+        
+        <a href="index.html" class="back-link">Повернутися на головну</a>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

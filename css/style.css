@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Archivo+Black&display=swap');
+
+:root {
+    --bg-blue: #acc7e8;
+    --bg-green: #6d7e52;
+    --text-dark: #2b1d16;
+    --white: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    font-family: 'Inter', sans-serif; 
+    color: var(--text-dark); 
+    overflow-x: hidden; 
+    background-color: #fcfaf7;
+}
+
+/* --- HERO SECTION --- */
+.hero-section { display: flex; min-height: 100vh; flex-wrap: wrap; }
+
+.hero-left { 
+    flex: 1; 
+    min-width: 50%; 
+    background-color: var(--bg-blue); 
+    padding: 60px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
+    position: relative; 
+}
+
+.hero-right { 
+    flex: 1; 
+    min-width: 50%; 
+    background: #d2b48c url('https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?q=80&w=1600&auto=format&fit=crop&sig=1') center/cover no-repeat !important; 
+    min-height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    position: relative;
+}
+
+/* --- HEADER (ВИПРАВЛЕНО ДЛЯ РОЗШИРЕННЯ) --- */
+.main-header { 
+    background: var(--white); 
+    padding: 10px 25px; 
+    border-radius: 50px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    width: fit-content; /* Плашка підлаштовується під контент */
+    max-width: none; /* Прибираємо обмеження, щоб Денис помістився */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08); 
+    z-index: 1010; 
+    position: relative;
+    gap: 20px;
+}
+
+/* Контейнер для іконки та бургера */
+.header-right-zone {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Іконка користувача */
+.auth-trigger {
+    position: relative;
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--text-dark);
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.auth-trigger:hover {
+    color: var(--bg-green);
+}
+
+/* Випадаюче меню авторизації */
+.auth-dropdown {
+    display: none; 
+    position: absolute;
+    top: calc(100% + 15px);
+    right: 0;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 150px;
+    padding: 10px 0;
+    z-index: 1100;
+}
+
+.auth-dropdown.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.auth-dropdown a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.auth-dropdown a:hover {
+    background: #f4f7f6;
+    color: var(--bg-green);
+}
+
+.logo h1 { font-family: 'Archivo Black', sans-serif; font-size: 22px; letter-spacing: -1px; }
+
+.burger-menu {
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    width: 22px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.burger-menu span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-dark);
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.burger-menu.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.burger-menu.open span:nth-child(2) { opacity: 0; }
+.burger-menu.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* --- NAVIGATION (ВИПРАВЛЕНО ВИПАДАННЯ) --- */
+.navigation {
+    display: flex;
+    align-items: center;
+    position: relative; 
+}
+
+/* Стиль для блоку з ім'ям */
+.user-logged-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap; 
+}
+.user-logged-info span {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text-dark);
+}
+
+/* Головне меню тепер випадає ОКРЕМО */
+#nav-links {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: calc(100% + 15px);
+    right: 0;
+    background: white;
+    min-width: 200px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    list-style: none;
+    gap: 15px;
+    z-index: 1100;
+}
+
+#nav-links.active {
+    display: flex; 
+    animation: fadeIn 0.3s ease;
+}
+
+#nav-links li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+#nav-links li a:hover {
+    color: var(--bg-green);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- HERO TEXT --- */
+.hero-content h2 { 
+    font-family: 'Archivo Black', sans-serif; 
+    font-size: clamp(40px, 8vw, 80px); 
+    line-height: 0.95; 
+    margin: 40px 0; 
+}
+.hero-subtitle { max-width: 400px; font-size: 18px; margin-bottom: 30px; line-height: 1.4; }
+.btn-outline { 
+    display: inline-block; 
+    padding: 12px 30px; 
+    border: 2px solid var(--text-dark); 
+    border-radius: 50px; 
+    text-decoration: none; 
+    color: var(--text-dark); 
+    font-weight: 700; 
+    transition: 0.3s; 
+}
+.btn-outline:hover { background: var(--text-dark); color: white; }
+
+/* --- FEATURED CARD --- */
+.featured-card { 
+    background: var(--white); 
+    width: 350px; 
+    border-radius: 40px; 
+    overflow: hidden; 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+.card-image img { width: 100%; height: 230px; object-fit: cover; padding: 15px; border-radius: 50px; }
+.card-content { padding: 0 30px 30px; text-align: right; }
+.location-tag { display: block; font-size: 14px; opacity: 0.5; margin-bottom: 5px; text-transform: uppercase; }
+.card-content h3 { font-size: 20px; line-height: 1.3; font-weight: 700; }
+
+/* --- PROJECTS (ЗБЕРЕЖЕНО ПОВНІСТЮ) --- */
+.stories-section { padding: 100px 5%; background: #fcfaf7; }
+.stories-section h2 { text-align: left; margin-bottom: 60px; font-family: 'Archivo Black', sans-serif; font-size: 36px; }
+.stories-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 40px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+.story-card { 
+    background: white; 
+    border-radius: 40px; 
+    overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+    transition: 0.3s ease;
+}
+.story-image { width: 100%; height: 280px; overflow: hidden; }
+.story-image img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.story-card:hover .story-image img { transform: scale(1.05); }
+.story-content { padding: 30px; }
+.story-content h3 { font-size: 20px; line-height: 1.3; font-weight: 700; }
+
+/* --- ABOUT SECTION (ЗБЕРЕЖЕНО ПОВНІСТЮ) --- */
+.about-section { padding: 100px 5%; background: #ffffff; }
+.about-container { 
+    display: flex; 
+    align-items: center; 
+    gap: 60px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    flex-wrap: wrap;
+}
+.about-text { flex: 1; min-width: 300px; }
+.about-text h2 { font-family: 'Archivo Black', sans-serif; font-size: 40px; margin: 20px 0; }
+.about-text p { line-height: 1.6; opacity: 0.8; }
+.stats { display: flex; gap: 40px; margin-top: 40px; }
+.stat-item strong { font-size: 32px; display: block; color: var(--bg-green); }
+.about-image { flex: 1; min-width: 300px; }
+.about-image img { width: 100%; border-radius: 40px; box-shadow: 20px 20px 0 var(--bg-blue); }
+
+/* --- MISSION (ЗБЕРЕЖЕНО ПОВНІСТЮ) --- */
+.itinerary-section { 
+    background: var(--bg-green); 
+    color: var(--white); 
+    padding: 100px 5%; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+.itinerary-item { 
+    display: flex; 
+    align-items: center; 
+    width: 100%; 
+    max-width: 800px; 
+    padding: 40px 0; 
+    border-bottom: 1px dashed rgba(255,255,255,0.3); 
+}
+.itinerary-number { font-size: 60px; font-family: serif; font-style: italic; min-width: 100px; }
+.itinerary-info { flex: 1; }
+
+/* Соцмережі */
+.social-icons-wrapper { display: flex; gap: 15px; margin-top: 20px; }
+.social-icon-link { 
+    width: 45px; height: 45px;
+    border: 1px solid rgba(255,255,255,0.4); 
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white; text-decoration: none; font-size: 20px;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.social-icon-link:hover { 
+    background: var(--white); 
+    color: var(--bg-green); 
+    transform: translateY(-5px) rotate(360deg); 
+}
+
+/* --- CONTACTS (ЗБЕРЕЖЕНО ПОВНІСТЮ) --- */
+.contact-section { padding: 100px 5%; background: var(--bg-blue); display: flex; justify-content: center; }
+.contact-card { 
+    background: var(--white); 
+    padding: 60px; 
+    border-radius: 40px; 
+    max-width: 600px; 
+    text-align: center; 
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+.contact-form { display: flex; flex-direction: column; gap: 15px; margin-top: 30px; }
+.contact-form input, .contact-form textarea { 
+    padding: 15px 20px; 
+    border: 1px solid #eee; 
+    border-radius: 15px; 
+    font-family: inherit;
+    outline: none;
+}
+.btn-submit { 
+    background: var(--text-dark); 
+    color: white; 
+    border: none; 
+    padding: 15px; 
+    border-radius: 50px; 
+    font-weight: 700; 
+    cursor: pointer; 
+    transition: 0.3s;
+}
+.btn-submit:hover { transform: scale(1.02); background: var(--bg-green); }
+
+/* --- SUBSCRIBE --- */
+.subscribe-section { padding: 80px 5%; background-color: #f4f7f6; text-align: center; }
+.subscribe-container { max-width: 800px; margin: 0 auto; }
+.subscribe-content h2 { font-family: 'Archivo Black', sans-serif; font-size: 32px; margin-bottom: 15px; }
+.subscribe-form { display: flex; gap: 10px; margin-top: 30px; justify-content: center; flex-wrap: wrap; }
+.subscribe-form input { padding: 15px 25px; border: 1px solid #ddd; border-radius: 50px; width: 300px; outline: none; }
+.subscribe-form button { padding: 15px 35px; background-color: var(--bg-green); color: white; border: none; border-radius: 50px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+.subscribe-form button:hover { background-color: var(--text-dark); }
+.success-message { display: none; margin-top: 20px; color: var(--bg-green); font-weight: 700; }
+
+/* --- FOOTER --- */
+.main-footer {
+    background-color: var(--text-dark);
+    color: white;
+    padding: 80px 5% 40px;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.footer-logo { font-family: 'Archivo Black', sans-serif; font-size: 28px; margin-bottom: 20px; }
+.footer-links h4 { margin-bottom: 25px; font-size: 18px; }
+.footer-links ul { list-style: none; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a { color: white; text-decoration: none; opacity: 0.7; transition: 0.3s; }
+.footer-links a:hover { opacity: 1; padding-left: 5px; }
+.footer-bottom {
+    margin-top: 80px;
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 14px;
+    opacity: 0.5;
+}
+
+/* --- АДАПТИВНІСТЬ --- */
+@media (max-width: 1024px) {
+    .hero-left, .hero-right { min-width: 100%; }
+    .main-header { position: fixed; top: 20px; left: 5%; width: 90%; justify-content: space-between; }
+}
+
+@media (max-width: 768px) {
+    .about-container { gap: 30px; }
+    .about-text h2 { font-size: 32px; }
+    .contact-card { padding: 40px 20px; }
+    .subscribe-form input, .subscribe-form button { width: 100%; }
+}

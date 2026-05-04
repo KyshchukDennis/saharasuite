@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реєстрація | ISC Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="login-body">
+
+    <div class="login-card">
+        <div class="logo"><h1>ISC</h1></div>
+        <h2 id="reg-title">Реєстрація</h2>
+        <form id="register-form" class="contact-form">
+    <div id="reg-fields" class="vertical-fields">
+        <input type="text" name="first_name" id="reg-first-name" placeholder="Ім'я" required>
+        <input type="text" name="last_name" id="reg-last-name" placeholder="Прізвище (Не обов'язково)">
+        <input type="tel" name="phone" id="reg-phone" placeholder="Номер телефону" required>
+        <input type="email" name="email" id="reg-email" placeholder="Електронна пошта" required>
+        <input type="password" name="password" id="reg-password" placeholder="Пароль" required>
+        <input type="password" name="confirm_password" id="reg-confirm-password" placeholder="Підтвердіть пароль" required>
+    </div>
+
+    <p id="reg-error-msg" class="error-msg-style" style="display: none; color: #e74c3c; margin: 10px 0; font-size: 14px; font-weight: 500;">
+        <i class="fa-solid fa-circle-exclamation"></i> Паролі не збігаються!
+    </p>
+
+    <button type="submit" id="reg-btn" class="btn-submit" style="margin-top: 20px;">Зареєструватися</button>
+</form>
+
+        <div id="reg-success" style="display: none; text-align: center; margin-top: 20px;">
+            <div style="font-size: 50px; color: var(--bg-green); margin-bottom: 15px;">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 id="success-user-msg" style="margin-bottom: 10px;"></h3>
+            <p style="font-size: 14px; opacity: 0.8; margin-bottom: 20px;">Тепер ви можете увійти до системи.</p>
+            <a href="login.html" class="btn-submit" style="text-decoration: none; display: inline-block; width: 100%;">Перейти до входу</a>
+        </div>
+
+        <div id="reg-footer" style="margin-top: 25px; font-size: 14px; border-top: 1px solid #eee; padding-top: 20px;">
+            <span>Вже маєте акаунт? </span>
+            <a href="login.html" style="color: var(--bg-green); font-weight: 700; text-decoration: none;">Увійти</a>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
