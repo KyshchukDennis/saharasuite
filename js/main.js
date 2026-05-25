@@ -95,40 +95,61 @@ if (loginForm) {
     loginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        const email = document.getElementById('username').value; 
-        const password = document.getElementById('password').value;
+        // 1. Отримуємо дані з полів
+        const usernameInput = document.getElementById('username').value; 
+        const passwordInput = document.getElementById('password').value;
+        const errorMsg = document.getElementById('error-msg');
 
-        const formData = { email, password };
+        // --- ПЕРЕВІРКА НА АДМІНА (ЛОКАЛЬНА) ---
+        if (usernameInput === 'admin' && passwordInput === '123') {
+            console.log("Вхід виконано під локальним адміном");
+            
+            localStorage.setItem('isLogged', 'true');
+            localStorage.setItem('userName', 'Admin');
+            
+            window.location.href = 'index.html'; 
+            return; // Зупиняємо виконання коду, щоб не робити запит до сервера
+        }
+        // --------------------------------------
+
+        const formData = { 
+            email: usernameInput, 
+            password: passwordInput 
+        };
 
         try {
+            // Приховуємо помилку перед новим запитом
+            if (errorMsg) errorMsg.style.display = 'none';
+
             const response = await fetch('api/login.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
             });
 
-            // --- ОСЬ ЦЯ ЧАСТИНА, ПРО ЯКУ ТИ ПИТАВ ---
             const responseText = await response.text(); 
             console.log("Відповідь сервера (сирий текст):", responseText); 
 
             try {
                 const result = JSON.parse(responseText); 
+                
                 if (result.status === 'success') {
                     localStorage.setItem('isLogged', 'true');
                     localStorage.setItem('userName', result.user_name);
                     window.location.href = 'index.html';
                 } else {
-                    alert(result.message);
+                    // Показуємо помилку з сервера або стандартне повідомлення
+                    if (errorMsg) errorMsg.style.display = 'block';
+                    alert(result.message || "Невірні дані!");
                 }
-            } catch (e) {
+            } catch (parseError) {
                 console.error("Сервер повернув не JSON. Текст відповіді:", responseText);
-                alert("Помилка сервера. Глянь у консоль!");
+                alert("Помилка формату даних від сервера.");
             }
-            // --- КІНЕЦЬ ПРАВКИ ---
 
         } catch (error) {
             console.error('Критична помилка входу:', error);
-            alert("Сервер не відповідає!");
+            alert("Сервер не відповідає! Перевірте з'єднання.");
         }
     });
 }
